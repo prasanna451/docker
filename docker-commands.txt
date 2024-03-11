@@ -138,6 +138,176 @@ docker inspect <imageID>
 
 ip a
 
+docker network ls
+
+docker network --help
+
+docker network create test-bridge
+
+docker network inspect bridge
+you can inspect name, subnet, ip, network bridge name.
+
+ip a:
+u can see the docker0 network and ip,
+
+docker network inspect test-bridge
+u can see the ip as different compared to bridge network.
+
+docker run -itd --network=test-bridge --name cont1 -p 80:80 httpd
+                <network name>        <containername>
+to create cont1 in newly created network
+
+docker inspect cont1
+login inside the cont
+apt-get install net-tools
+apt-get install telnet
+apt-get install ping
+apt-get install iputils-ping
+with ip check ping command and check curl ip:80
+
+docker run -itd --network=none --name cont2 -p 81:80 httpd
+
+docker run -itd --network=host --name cont3 -p 82:80 httpd
+
+ip a
+u will get docker host ip- with this ip u can access from outside the browser.
+
+docker volume
+
+docker volume ls
+
+docker volume create data_vol
+
+docker inspect volume data_vol
+will show tha mount path
+
+If we have volumes, then we use this type:
+docker run -itd --name cont-volume --mount source=data_vol,destination=/data httpd /bin/bash
+                 <containername> <mounting path>     <inside the container> <imagename>
+
+If we dont have volumes then we do:
+docker run -itd --name cont-new-volume -v /data/mnt:/selva httpd /bin/bash
+                                          src:dest       <imagename>
+
+docker volume rm data_vol
+
+docker compose:
+to manage multiple containers
+
+
+apt-cache search docker-compose
+apt-get install docker-compose
+
+docker-compose version
+
+git clone https://github.com/learnitguide/kubernetes-knote
+this has sample docker compose file
+
+docker-compose
+
+docker-compose up
+it will work if you have docker-compose.yaml file
+
+otherwise apply this command
+
+docker-compose -f myapp.yaml up
+
+if u need to run in background
+docker-compose up -d
+
+docker-compose images
+
+docker-compose ps
+
+docker-compose down
+
+docker-compose restart
+it will restart all containers
+
+docker ps -a
+
+docker-compose restart <servicename-mentioned inside the yaml file>
+
+docker-compose logs <cont-name>
+
+docker-compose config
+
+docker run --memory-reservation=256 -m 512 -d --name web1 httpd
+             <lower limit>             <higher limit>
+
+docker run --cpu=1.2 -d --name web3 httpd
+
+docker run --cpu-shares=1000 --cpu=1 -d --name web3 httpd
+
+if u need to specify in docker-compose.yaml
+deploy:
+    resources:
+        limits:
+          cpus: "0.50"
+          memory: "1024M"
+        reservation:
+          cpus: "0.25"
+          memory: "256M"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
