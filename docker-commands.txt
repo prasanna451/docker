@@ -1,0 +1,261 @@
+docker version:
+
+docker -v:
+
+docker:
+
+docker volume ls:
+
+docker volume help:
+
+docker images:
+
+docker image help:
+
+docker info:
+overall info
+
+docker system help:
+
+docker system df:
+show disk usage
+
+docker system events:
+real time events from the server
+
+docker system info - display system-wide information.
+
+man docker system - shows manual page.
+
+docker
+
+docker stats - show real time memory/cpu.
+
+docker search <image> - docker search httpd - shows all images in dockerhub
+it has username plus imagename
+
+docker pull <imagename> - docker pull httpd.
+
+after pull image give docker system info command.
+
+docker ps
+
+docker run --name web1 httpd - container runs in foreground and cant access from outer world bcas it has no port forwarding.
+
+doker run -itd --name web2 -p 80:80 httpd:
+docker run -<interactive><terminal><dashboard> --name <container name> -<portforwarding> <browser acccess port>:<containerport> <imagename>
+
+doker run -itd --name web2 -P httpd: gives random port.
+
+docker ps -a
+
+docker exec -it <containername / containerID> /bin/bash
+
+ip a / netstat-tulpn - shows IP.
+
+docker cp
+
+docker cp sysinfo 31b038:/tmp/
+docker cp <filename> <containerID:<file path>
+
+docker exec web2 ls /tmp/
+without login you can use linux commands inside the container.
+
+docker cp web2:/tmp/sysinfo .
+to cpoy files inside cont to local system
+
+docker stop web2
+            <cont-name>
+
+docker start web2
+
+docker rm -f web2
+to rm forcefully
+
+docker logs web2
+            <cont-name>
+
+docker top
+to check usage
+
+
+docker top web2
+          <cont-name>
+
+docker pull <imagename>:tag
+
+docker inspect <imagename:tag>
+details of the image
+
+docker history <imagename:tag>
+show history
+
+docker save ubuntu:latest > ubuntu-bkp.tar
+docker save <imagename:tag / image ID> > <urimagename.tar>
+
+scp ubuntu-bkp.tar selva@192.0.0.0:/home/selva/
+    <urimagename.tar> <ec2@IP:path>
+
+docker load -i ubuntu-bkp.tar
+               <urimagename.tar>
+
+
+docker rmi <imagename>
+
+docker rmi $(sudo docker images -a -q)
+             <list all images>
+
+
+docker exec -it <cont-ID> /bin/bash
+apt-get install curl
+apt-get install nmap
+apt-get update
+
+docker commit <cont-ID>
+just convert this into image, not give name and tag
+
+docker commit <cont-ID> customimg:2.1
+                        <imagename:tag>
+it just give tag and name and doesnt give username
+
+docker tag customimage:2.1 learnguide/customeimage:2.1
+to rename image name with user + imagename bcas it will consider it as official image
+
+docker push learnguide/customeimage:2.1
+
+docker login
+
+vi Dockerfile
+
+docker build .
+
+docker build -f <path>
+
+docker build - myweb:latest .
+               <imagename:tag>
+
+docker inspect <imageID>
+
+ip a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
